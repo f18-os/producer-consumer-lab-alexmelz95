@@ -1,0 +1,4 @@
+Contribution Sheet
+
+1) I got the idea to create a custom thread class from Gerardo Uranga
+2) I got the idea to create a finished1 and finished2 var from Gerardo Uranga
