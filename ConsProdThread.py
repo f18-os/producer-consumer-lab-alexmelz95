@@ -1,6 +1,9 @@
 from threading import Thread
-import queue
+import threading
+import myQueue
 import theHelp
+
+#View Contribution Sheet: 1
 
 class ConsProdThread(Thread):
     def __init__(self, functionName, params1=None, params2=None):
@@ -26,10 +29,10 @@ class ConsProdThread(Thread):
 
 
 fileName = 'clip.mp4'
-
 # shared queues
-extractionQueue = queue.Queue(10)
-grayscaleQueue = queue.Queue(10)
+lock = threading.Lock()
+extractionQueue = myQueue.myQueue(10,lock)
+grayscaleQueue = myQueue.myQueue(10,lock)
 theHelp.finished1 = False
 theHelp.finished2 = False
 t1 = ConsProdThread('extractFrames',params1=fileName,params2=extractionQueue)
